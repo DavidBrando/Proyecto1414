@@ -3,6 +3,8 @@
 #include "FPSMultijugadorProjectile.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Components/SphereComponent.h"
+#include "Kismet/GameplayStatics.h"
+
 
 AFPSMultijugadorProjectile::AFPSMultijugadorProjectile() 
 {
@@ -29,6 +31,7 @@ AFPSMultijugadorProjectile::AFPSMultijugadorProjectile()
 
 	// Die after 3 seconds by default
 	InitialLifeSpan = 3.0f;
+
 }
 
 void AFPSMultijugadorProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
@@ -37,6 +40,7 @@ void AFPSMultijugadorProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* Oth
 	if ((OtherActor != nullptr) && (OtherActor != this) && (OtherComp != nullptr) && OtherComp->IsSimulatingPhysics())
 	{
 		OtherComp->AddImpulseAtLocation(GetVelocity() * 100.0f, GetActorLocation());
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("AU!"));
 
 		Destroy();
 	}

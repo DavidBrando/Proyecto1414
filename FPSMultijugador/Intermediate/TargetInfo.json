@@ -2,12 +2,12 @@
 	"Targets": [
 		{
 			"Name": "FPSMultijugador",
-			"Path": "D:\\GitHub\\UdemyCourse\\Proyectos\\FPSMultijugador\\Source\\FPSMultijugador.Target.cs",
+			"Path": "D:\\GitHub\\Proyecto1414\\FPSMultijugador\\Source\\FPSMultijugador.Target.cs",
 			"Type": "Game"
 		},
 		{
 			"Name": "FPSMultijugadorEditor",
-			"Path": "D:\\GitHub\\UdemyCourse\\Proyectos\\FPSMultijugador\\Source\\FPSMultijugadorEditor.Target.cs",
+			"Path": "D:\\GitHub\\Proyecto1414\\FPSMultijugador\\Source\\FPSMultijugadorEditor.Target.cs",
 			"Type": "Editor"
 		}
 	]

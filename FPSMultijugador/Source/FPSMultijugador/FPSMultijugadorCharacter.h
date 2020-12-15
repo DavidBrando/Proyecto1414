@@ -13,6 +13,7 @@ class UCameraComponent;
 class UMotionControllerComponent;
 class UAnimMontage;
 class USoundBase;
+class UWorld;
 
 UCLASS(config=Game)
 class AFPSMultijugadorCharacter : public ACharacter
@@ -91,9 +92,6 @@ protected:
 	/** Fires a projectile. */
 	void OnFire();
 
-	/** Resets HMD orientation and position in VR. */
-	void OnResetVR();
-
 	/** Handles moving forward/backward */
 	void MoveForward(float Val);
 
@@ -112,18 +110,21 @@ protected:
 	 */
 	void LookUpAtRate(float Rate);
 
-	struct TouchData
-	{
-		TouchData() { bIsPressed = false;Location=FVector::ZeroVector;}
-		bool bIsPressed;
-		ETouchIndex::Type FingerIndex;
-		FVector Location;
-		bool bMoved;
-	};
-	void BeginTouch(const ETouchIndex::Type FingerIndex, const FVector Location);
-	void EndTouch(const ETouchIndex::Type FingerIndex, const FVector Location);
-	void TouchUpdate(const ETouchIndex::Type FingerIndex, const FVector Location);
-	TouchData	TouchItem;
+	/*Funcion que cambia la rotacion en el servidor para el propio jugador*/
+	UFUNCTION(Server, Unreliable, WithValidation)
+	void Srv_CorrectPitch_Remote(FRotator N_Rotation);
+
+	/*Funcion que cambia la rotacion para todos los jugadores*/
+	UFUNCTION(NetMulticast, Unreliable, WithValidation)
+	void Srv_CorrectPitch_Multicast(FRotator N_Rotation);
+
+	/*Funcion para replicar los efectos*/
+	UFUNCTION(NetMulticast, Reliable, WithValidation)
+	void Srv_GunEffects_Multicast();
+
+	/*Funcion para replicar los disparos*/
+	UFUNCTION(Server, Reliable, WithValidation)
+	void Srv_Shoot_Remote(UWorld* World);
 	
 protected:
 	// APawn interface
@@ -136,7 +137,7 @@ protected:
 	 * @param	InputComponent	The input component pointer to bind controls to
 	 * @returns true if touch controls were enabled.
 	 */
-	bool EnableTouchscreenMovement(UInputComponent* InputComponent);
+	FRotator Rotation;
 
 public:
 	/** Returns Mesh1P subobject **/

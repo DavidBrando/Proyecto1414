@@ -11,6 +11,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "MotionControllerComponent.h"
 #include "XRMotionControllerBase.h" // for FXRMotionControllerBase::RightHandSourceId
+#include "Net/UnrealNetwork.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
 
@@ -120,11 +121,6 @@ void AFPSMultijugadorCharacter::SetupPlayerInputComponent(class UInputComponent*
 	// Bind fire event
 	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &AFPSMultijugadorCharacter::OnFire);
 
-	// Enable touchscreen input
-	EnableTouchscreenMovement(PlayerInputComponent);
-
-	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AFPSMultijugadorCharacter::OnResetVR);
-
 	// Bind movement events
 	PlayerInputComponent->BindAxis("MoveForward", this, &AFPSMultijugadorCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AFPSMultijugadorCharacter::MoveRight);
@@ -143,116 +139,17 @@ void AFPSMultijugadorCharacter::OnFire()
 	// try and fire a projectile
 	if (ProjectileClass != nullptr)
 	{
-		UWorld* const World = GetWorld();
+		UWorld*  World = GetWorld();
 		if (World != nullptr)
 		{
-			if (bUsingMotionControllers)
-			{
-				const FRotator SpawnRotation = VR_MuzzleLocation->GetComponentRotation();
-				const FVector SpawnLocation = VR_MuzzleLocation->GetComponentLocation();
-				World->SpawnActor<AFPSMultijugadorProjectile>(ProjectileClass, SpawnLocation, SpawnRotation);
-			}
-			else
-			{
-				const FRotator SpawnRotation = GetControlRotation();
-				// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
-				const FVector SpawnLocation = ((FP_MuzzleLocation != nullptr) ? FP_MuzzleLocation->GetComponentLocation() : GetActorLocation()) + SpawnRotation.RotateVector(GunOffset);
-
-				//Set Spawn Collision Handling Override
-				FActorSpawnParameters ActorSpawnParams;
-				ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
-
-				// spawn the projectile at the muzzle
-				World->SpawnActor<AFPSMultijugadorProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
-			}
+			//cosa de disparar
+			Srv_Shoot_Remote(World);
 		}
 	}
 
-	// try and play the sound if specified
-	if (FireSound != nullptr)
-	{
-		UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-	}
-
-	// try and play a firing animation if specified
-	if (FireAnimation != nullptr)
-	{
-		// Get the animation object for the arms mesh
-		UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
-		if (AnimInstance != nullptr)
-		{
-			AnimInstance->Montage_Play(FireAnimation, 1.f);
-		}
-	}
+		//cosa de efectos aqui
 }
 
-void AFPSMultijugadorCharacter::OnResetVR()
-{
-	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
-}
-
-void AFPSMultijugadorCharacter::BeginTouch(const ETouchIndex::Type FingerIndex, const FVector Location)
-{
-	if (TouchItem.bIsPressed == true)
-	{
-		return;
-	}
-	if ((FingerIndex == TouchItem.FingerIndex) && (TouchItem.bMoved == false))
-	{
-		OnFire();
-	}
-	TouchItem.bIsPressed = true;
-	TouchItem.FingerIndex = FingerIndex;
-	TouchItem.Location = Location;
-	TouchItem.bMoved = false;
-}
-
-void AFPSMultijugadorCharacter::EndTouch(const ETouchIndex::Type FingerIndex, const FVector Location)
-{
-	if (TouchItem.bIsPressed == false)
-	{
-		return;
-	}
-	TouchItem.bIsPressed = false;
-}
-
-//Commenting this section out to be consistent with FPS BP template.
-//This allows the user to turn without using the right virtual joystick
-
-//void AFPSMultijugadorCharacter::TouchUpdate(const ETouchIndex::Type FingerIndex, const FVector Location)
-//{
-//	if ((TouchItem.bIsPressed == true) && (TouchItem.FingerIndex == FingerIndex))
-//	{
-//		if (TouchItem.bIsPressed)
-//		{
-//			if (GetWorld() != nullptr)
-//			{
-//				UGameViewportClient* ViewportClient = GetWorld()->GetGameViewport();
-//				if (ViewportClient != nullptr)
-//				{
-//					FVector MoveDelta = Location - TouchItem.Location;
-//					FVector2D ScreenSize;
-//					ViewportClient->GetViewportSize(ScreenSize);
-//					FVector2D ScaledDelta = FVector2D(MoveDelta.X, MoveDelta.Y) / ScreenSize;
-//					if (FMath::Abs(ScaledDelta.X) >= 4.0 / ScreenSize.X)
-//					{
-//						TouchItem.bMoved = true;
-//						float Value = ScaledDelta.X * BaseTurnRate;
-//						AddControllerYawInput(Value);
-//					}
-//					if (FMath::Abs(ScaledDelta.Y) >= 4.0 / ScreenSize.Y)
-//					{
-//						TouchItem.bMoved = true;
-//						float Value = ScaledDelta.Y * BaseTurnRate;
-//						AddControllerPitchInput(Value);
-//					}
-//					TouchItem.Location = Location;
-//				}
-//				TouchItem.Location = Location;
-//			}
-//		}
-//	}
-//}
 
 void AFPSMultijugadorCharacter::MoveForward(float Value)
 {
@@ -282,19 +179,97 @@ void AFPSMultijugadorCharacter::LookUpAtRate(float Rate)
 {
 	// calculate delta for this frame from the rate information
 	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
+	Srv_CorrectPitch_Remote(FirstPersonCameraComponent->K2_GetComponentRotation()); //Pitch, Yaw, Roll
 }
 
-bool AFPSMultijugadorCharacter::EnableTouchscreenMovement(class UInputComponent* PlayerInputComponent)
-{
-	if (FPlatformMisc::SupportsTouchInput() || GetDefault<UInputSettings>()->bUseMouseForTouch)
-	{
-		PlayerInputComponent->BindTouch(EInputEvent::IE_Pressed, this, &AFPSMultijugadorCharacter::BeginTouch);
-		PlayerInputComponent->BindTouch(EInputEvent::IE_Released, this, &AFPSMultijugadorCharacter::EndTouch);
 
-		//Commenting this out to be more consistent with FPS BP template.
-		//PlayerInputComponent->BindTouch(EInputEvent::IE_Repeat, this, &AFPSMultijugadorCharacter::TouchUpdate);
-		return true;
-	}
+//Funciones de network
+
+
+void AFPSMultijugadorCharacter::Srv_CorrectPitch_Remote_Implementation(FRotator N_Rotation)
+{
+	//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, TEXT("hola!"));
+	Rotation = N_Rotation;
+	Srv_CorrectPitch_Multicast(Rotation);
+
+}
+
+bool AFPSMultijugadorCharacter::Srv_CorrectPitch_Remote_Validate(FRotator N_Rotation)
+{
+	return true;
+}
+
+void AFPSMultijugadorCharacter::Srv_CorrectPitch_Multicast_Implementation(FRotator N_Rotation)
+{
+	FRotator r = FRotator(N_Rotation.Pitch, 0.f, 0.f);
+	FirstPersonCameraComponent->SetRelativeRotation(r);
 	
-	return false;
+}
+
+bool AFPSMultijugadorCharacter::Srv_CorrectPitch_Multicast_Validate(FRotator N_Rotation)
+{
+	return true;
+}
+
+void AFPSMultijugadorCharacter::Srv_GunEffects_Multicast_Implementation()
+{
+	// try and play the sound if specified
+	if (FireSound != nullptr)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
+	}
+
+	// try and play a firing animation if specified
+	if (FireAnimation != nullptr)
+	{
+		// Get the animation object for the arms mesh
+		UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
+		if (AnimInstance != nullptr)
+		{
+			AnimInstance->Montage_Play(FireAnimation, 1.f);
+		}
+	}
+}
+
+
+bool AFPSMultijugadorCharacter::Srv_GunEffects_Multicast_Validate()
+{
+	return true;
+}
+
+
+void AFPSMultijugadorCharacter::Srv_Shoot_Remote_Implementation(UWorld* World) {
+
+	if (bUsingMotionControllers)
+	{
+		const FRotator SpawnRotation = VR_MuzzleLocation->GetComponentRotation();
+		const FVector SpawnLocation = VR_MuzzleLocation->GetComponentLocation();
+		World->SpawnActor<AFPSMultijugadorProjectile>(ProjectileClass, SpawnLocation, SpawnRotation);
+	}
+	else
+	{
+		const FRotator SpawnRotation = GetControlRotation();
+		// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
+		const FVector SpawnLocation = ((FP_MuzzleLocation != nullptr) ? FP_MuzzleLocation->GetComponentLocation() : GetActorLocation()) + SpawnRotation.RotateVector(GunOffset);
+
+		//Set Spawn Collision Handling Override
+		FActorSpawnParameters ActorSpawnParams;
+		ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
+
+		// spawn the projectile at the muzzle
+		AFPSMultijugadorProjectile* bullet = World->SpawnActor<AFPSMultijugadorProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+
+		//Le añadimos quien es su owner para que no se haga daño el mismo
+		if (bullet != nullptr) {
+			bullet->SetOwner(this);
+		}
+	}
+
+	Srv_GunEffects_Multicast();
+
+}
+
+bool AFPSMultijugadorCharacter::Srv_Shoot_Remote_Validate(UWorld* World) {
+
+	return true;
 }

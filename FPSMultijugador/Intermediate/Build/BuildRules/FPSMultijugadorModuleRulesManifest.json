@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"D:\\GitHub\\UdemyCourse\\Proyectos\\FPSMultijugador\\Source\\FPSMultijugador\\FPSMultijugador.Build.cs",
-		"D:\\GitHub\\UdemyCourse\\Proyectos\\FPSMultijugador\\Source\\FPSMultijugador.Target.cs",
-		"D:\\GitHub\\UdemyCourse\\Proyectos\\FPSMultijugador\\Source\\FPSMultijugadorEditor.Target.cs"
+		"D:\\GitHub\\Proyecto1414\\FPSMultijugador\\Source\\FPSMultijugador\\FPSMultijugador.Build.cs",
+		"D:\\GitHub\\Proyecto1414\\FPSMultijugador\\Source\\FPSMultijugador.Target.cs",
+		"D:\\GitHub\\Proyecto1414\\FPSMultijugador\\Source\\FPSMultijugadorEditor.Target.cs"
 	],
 	"EngineVersion": "4.26.0"
 }
