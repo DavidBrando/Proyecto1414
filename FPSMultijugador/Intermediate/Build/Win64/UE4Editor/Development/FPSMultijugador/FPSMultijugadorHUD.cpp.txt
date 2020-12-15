@@ -1,0 +1,17 @@
+D:\GitHub\UdemyCourse\Proyectos\FPSMultijugador\Intermediate\Build\Win64\UE4Editor\Development\FPSMultijugador\Definitions.FPSMultijugador.h
+D:\GitHub\UdemyCourse\Proyectos\FPSMultijugador\Source\FPSMultijugador\FPSMultijugadorHUD.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/HUD.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/HUDHitBox.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/DebugTextInfo.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DebugTextInfo.generated.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\HUD.generated.h
+D:\GitHub\UdemyCourse\Proyectos\FPSMultijugador\Intermediate\Build\Win64\UE4Editor\Inc\FPSMultijugador\FPSMultijugadorHUD.generated.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/Canvas.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Public\CanvasItem.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/Font.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/FontImportOptions.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\FontImportOptions.generated.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Source\Runtime\SlateCore\Public\Fonts/FontProviderInterface.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\SlateCore\FontProviderInterface.generated.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Font.generated.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Canvas.generated.h

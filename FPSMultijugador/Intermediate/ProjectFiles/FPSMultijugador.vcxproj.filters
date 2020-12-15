@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\FPSMultijugador.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{421DF8D7-5444-48CD-937B-97D316AAFD6B}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\FPSMultijugador.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\FPSMultijugadorEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{7632BE50-8BF7-4E96-B59C-8E22AAE8DA0F}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\FPSMultijugador">
+      <UniqueIdentifier>{7576DEA2-1222-4E77-8CC6-D7DFF4E943EE}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\FPSMultijugador\FPSMultijugador.Build.cs">
+      <Filter>Source\FPSMultijugador</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\FPSMultijugador\FPSMultijugador.cpp">
+      <Filter>Source\FPSMultijugador</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPSMultijugador\FPSMultijugador.h">
+      <Filter>Source\FPSMultijugador</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FPSMultijugador\FPSMultijugadorCharacter.cpp">
+      <Filter>Source\FPSMultijugador</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPSMultijugador\FPSMultijugadorCharacter.h">
+      <Filter>Source\FPSMultijugador</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FPSMultijugador\FPSMultijugadorGameMode.cpp">
+      <Filter>Source\FPSMultijugador</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPSMultijugador\FPSMultijugadorGameMode.h">
+      <Filter>Source\FPSMultijugador</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FPSMultijugador\FPSMultijugadorHUD.cpp">
+      <Filter>Source\FPSMultijugador</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPSMultijugador\FPSMultijugadorHUD.h">
+      <Filter>Source\FPSMultijugador</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FPSMultijugador\FPSMultijugadorProjectile.cpp">
+      <Filter>Source\FPSMultijugador</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPSMultijugador\FPSMultijugadorProjectile.h">
+      <Filter>Source\FPSMultijugador</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
