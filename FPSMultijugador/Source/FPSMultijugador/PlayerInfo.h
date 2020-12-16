@@ -39,7 +39,7 @@ protected:
 
 protected:
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HealthVariables)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HealthVariables, Replicated)
 		bool alive = true;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HealthVariables, Replicated)

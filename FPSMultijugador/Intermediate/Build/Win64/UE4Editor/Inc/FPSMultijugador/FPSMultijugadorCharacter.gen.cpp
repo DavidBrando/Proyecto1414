@@ -30,6 +30,18 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(AFPSMultijugadorCharacter::execSrv_ReSpawn)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		if (!P_THIS->Srv_ReSpawn_Validate())
+		{
+			RPC_ValidateFailed(TEXT("Srv_ReSpawn_Validate"));
+			return;
+		}
+		P_THIS->Srv_ReSpawn_Implementation();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AFPSMultijugadorCharacter::execSrv_Shoot_Remote)
 	{
 		P_GET_OBJECT(UWorld,Z_Param_World);
@@ -100,6 +112,11 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorCharacter() {}
 	{
 		ProcessEvent(FindFunctionChecked(NAME_AFPSMultijugadorCharacter_Srv_GunEffects_Multicast),NULL);
 	}
+	static FName NAME_AFPSMultijugadorCharacter_Srv_ReSpawn = FName(TEXT("Srv_ReSpawn"));
+	void AFPSMultijugadorCharacter::Srv_ReSpawn()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AFPSMultijugadorCharacter_Srv_ReSpawn),NULL);
+	}
 	static FName NAME_AFPSMultijugadorCharacter_Srv_Shoot_Remote = FName(TEXT("Srv_Shoot_Remote"));
 	void AFPSMultijugadorCharacter::Srv_Shoot_Remote(UWorld* World)
 	{
@@ -114,6 +131,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorCharacter() {}
 			{ "Srv_CorrectPitch_Multicast", &AFPSMultijugadorCharacter::execSrv_CorrectPitch_Multicast },
 			{ "Srv_CorrectPitch_Remote", &AFPSMultijugadorCharacter::execSrv_CorrectPitch_Remote },
 			{ "Srv_GunEffects_Multicast", &AFPSMultijugadorCharacter::execSrv_GunEffects_Multicast },
+			{ "Srv_ReSpawn", &AFPSMultijugadorCharacter::execSrv_ReSpawn },
 			{ "Srv_Shoot_Remote", &AFPSMultijugadorCharacter::execSrv_Shoot_Remote },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -199,6 +217,28 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorCharacter() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AFPSMultijugadorCharacter_Srv_GunEffects_Multicast_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AFPSMultijugadorCharacter_Srv_ReSpawn_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AFPSMultijugadorCharacter_Srv_ReSpawn_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "FPSMultijugadorCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSMultijugadorCharacter_Srv_ReSpawn_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AFPSMultijugadorCharacter, nullptr, "Srv_ReSpawn", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x80280CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AFPSMultijugadorCharacter_Srv_ReSpawn_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSMultijugadorCharacter_Srv_ReSpawn_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AFPSMultijugadorCharacter_Srv_ReSpawn()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AFPSMultijugadorCharacter_Srv_ReSpawn_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -320,6 +360,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorCharacter() {}
 		{ &Z_Construct_UFunction_AFPSMultijugadorCharacter_Srv_CorrectPitch_Multicast, "Srv_CorrectPitch_Multicast" }, // 4123280303
 		{ &Z_Construct_UFunction_AFPSMultijugadorCharacter_Srv_CorrectPitch_Remote, "Srv_CorrectPitch_Remote" }, // 2354839864
 		{ &Z_Construct_UFunction_AFPSMultijugadorCharacter_Srv_GunEffects_Multicast, "Srv_GunEffects_Multicast" }, // 3186471378
+		{ &Z_Construct_UFunction_AFPSMultijugadorCharacter_Srv_ReSpawn, "Srv_ReSpawn" }, // 2680724161
 		{ &Z_Construct_UFunction_AFPSMultijugadorCharacter_Srv_Shoot_Remote, "Srv_Shoot_Remote" }, // 2603432281
 	};
 #if WITH_METADATA
@@ -533,7 +574,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AFPSMultijugadorCharacter, 4015515246);
+	IMPLEMENT_CLASS(AFPSMultijugadorCharacter, 1784544012);
 	template<> FPSMULTIJUGADOR_API UClass* StaticClass<AFPSMultijugadorCharacter>()
 	{
 		return AFPSMultijugadorCharacter::StaticClass();

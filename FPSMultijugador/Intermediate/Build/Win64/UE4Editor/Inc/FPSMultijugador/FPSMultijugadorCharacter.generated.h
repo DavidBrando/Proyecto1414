@@ -17,6 +17,8 @@ struct FRotator;
 
 #define FPSMultijugador_Source_FPSMultijugador_FPSMultijugadorCharacter_h_21_SPARSE_DATA
 #define FPSMultijugador_Source_FPSMultijugador_FPSMultijugadorCharacter_h_21_RPC_WRAPPERS \
+	virtual bool Srv_ReSpawn_Validate(); \
+	virtual void Srv_ReSpawn_Implementation(); \
 	virtual bool Srv_Shoot_Remote_Validate(UWorld* ); \
 	virtual void Srv_Shoot_Remote_Implementation(UWorld* World); \
 	virtual bool Srv_GunEffects_Multicast_Validate(); \
@@ -26,6 +28,7 @@ struct FRotator;
 	virtual bool Srv_CorrectPitch_Remote_Validate(FRotator ); \
 	virtual void Srv_CorrectPitch_Remote_Implementation(FRotator N_Rotation); \
  \
+	DECLARE_FUNCTION(execSrv_ReSpawn); \
 	DECLARE_FUNCTION(execSrv_Shoot_Remote); \
 	DECLARE_FUNCTION(execSrv_GunEffects_Multicast); \
 	DECLARE_FUNCTION(execSrv_CorrectPitch_Multicast); \
@@ -33,6 +36,8 @@ struct FRotator;
 
 
 #define FPSMultijugador_Source_FPSMultijugador_FPSMultijugadorCharacter_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual bool Srv_ReSpawn_Validate(); \
+	virtual void Srv_ReSpawn_Implementation(); \
 	virtual bool Srv_Shoot_Remote_Validate(UWorld* ); \
 	virtual void Srv_Shoot_Remote_Implementation(UWorld* World); \
 	virtual bool Srv_GunEffects_Multicast_Validate(); \
@@ -42,6 +47,7 @@ struct FRotator;
 	virtual bool Srv_CorrectPitch_Remote_Validate(FRotator ); \
 	virtual void Srv_CorrectPitch_Remote_Implementation(FRotator N_Rotation); \
  \
+	DECLARE_FUNCTION(execSrv_ReSpawn); \
 	DECLARE_FUNCTION(execSrv_Shoot_Remote); \
 	DECLARE_FUNCTION(execSrv_GunEffects_Multicast); \
 	DECLARE_FUNCTION(execSrv_CorrectPitch_Multicast); \

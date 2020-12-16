@@ -2,6 +2,8 @@
 
 #include "FPSMultijugadorCharacter.h"
 #include "FPSMultijugadorProjectile.h"
+#include "FPSPlayerController.h"
+#include "FPSMultijugadorGameMode.h"
 #include "Animation/AnimInstance.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -43,7 +45,7 @@ AFPSMultijugadorCharacter::AFPSMultijugadorCharacter()
 	Mesh1P->SetRelativeRotation(FRotator(1.9f, -19.19f, 5.2f));
 	Mesh1P->SetRelativeLocation(FVector(-0.5f, -4.4f, -155.7f));
 
-	// Create a gun mesh component
+	// Create a gun mesh component, se va a llevar a una clase arma
 	FP_Gun = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("FP_Gun"));
 	FP_Gun->SetOnlyOwnerSee(false);			// otherwise won't be visible in the multiplayer
 	FP_Gun->bCastDynamicShadow = false;
@@ -184,6 +186,19 @@ void AFPSMultijugadorCharacter::LookUpAtRate(float Rate)
 }
 
 
+void AFPSMultijugadorCharacter::Srv_ReSpawn_Implementation()
+{
+	if (PlayerInfo->GetAlive() == false /*&& GetLocalRole() == ROLE_Authority*/) {
+		Cast<AFPSMultijugadorGameMode>(GetWorld()->GetAuthGameMode())->SpawnPlayer(Cast<AFPSPlayerController>(this->GetController()));
+		Destroy();
+	}
+}
+
+bool  AFPSMultijugadorCharacter::Srv_ReSpawn_Validate()
+{
+	return true;
+}
+
 //evento de recibir daño de Unreal
 float AFPSMultijugadorCharacter::TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
@@ -191,9 +206,13 @@ float AFPSMultijugadorCharacter::TakeDamage(float Damage, FDamageEvent const& Da
 	ActualDamage = Damage;
 	/*FString TheFloatStr = FString::SanitizeFloat(vidaCambios);
 	GEngine->AddOnScreenDebugMessage(-1, 5.0, FColor::Red, *TheFloatStr);*/
-	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, TEXT("Me pegan!" + this->GetName()));
+	//GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, TEXT("Me pegan!" + this->GetName()));
 
 	PlayerInfo->DoDamage(Damage);
+
+	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Blue, TEXT("Ey "));
+	Srv_ReSpawn();
+
 
 	return ActualDamage;
 }

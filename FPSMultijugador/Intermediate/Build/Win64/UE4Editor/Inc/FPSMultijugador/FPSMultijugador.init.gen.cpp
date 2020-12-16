@@ -21,8 +21,8 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugador_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0xBF7ECF10,
-				0xB4719211,
+				0xAEE0137C,
+				0xBD892CEC,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UE4CodeGen_Private::ConstructUPackage(ReturnPackage, PackageParams);

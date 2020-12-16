@@ -129,6 +129,8 @@ protected:
 	UFUNCTION(Server, Reliable, WithValidation)
 	void Srv_Shoot_Remote(UWorld* World);
 
+	UFUNCTION(Server, Reliable, WithValidation)
+	void Srv_ReSpawn();
 
 	virtual float TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser) override;
 	

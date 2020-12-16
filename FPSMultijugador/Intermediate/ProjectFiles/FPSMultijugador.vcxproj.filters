@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\FPSMultijugador.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{1DEF346F-ED53-4EC2-816E-B6A00EF8E2A1}</UniqueIdentifier>
+      <UniqueIdentifier>{CBAB1D7A-614B-4C8C-9570-B69249F0B2BA}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\FPSMultijugador.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{E8511990-7C5A-4C81-B03E-DDA0EA002638}</UniqueIdentifier>
+      <UniqueIdentifier>{532FA3CB-8B01-4CDF-8D6A-021D74574B79}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,7 +30,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\FPSMultijugador">
-      <UniqueIdentifier>{FF25F794-B1E7-454D-BB13-331DACCD21E0}</UniqueIdentifier>
+      <UniqueIdentifier>{80C62829-A043-4ED1-BFB8-E3265CAD402B}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\FPSMultijugador\FPSMultijugador.Build.cs">
       <Filter>Source\FPSMultijugador</Filter>
@@ -63,6 +63,12 @@
       <Filter>Source\FPSMultijugador</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\FPSMultijugador\FPSMultijugadorProjectile.h">
+      <Filter>Source\FPSMultijugador</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FPSMultijugador\FPSPlayerController.cpp">
+      <Filter>Source\FPSMultijugador</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPSMultijugador\FPSPlayerController.h">
       <Filter>Source\FPSMultijugador</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\FPSMultijugador\PlayerInfo.cpp">

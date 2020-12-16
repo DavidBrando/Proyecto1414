@@ -289,7 +289,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 	{
 		((UPlayerInfo*)Obj)->alive = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_alive = { "alive", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UPlayerInfo), &Z_Construct_UClass_UPlayerInfo_Statics::NewProp_alive_SetBit, METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_alive_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_alive_MetaData)) };
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_alive = { "alive", nullptr, (EPropertyFlags)0x0020080000000025, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UPlayerInfo), &Z_Construct_UClass_UPlayerInfo_Statics::NewProp_alive_SetBit, METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_alive_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_alive_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_health_MetaData[] = {
 		{ "Category", "HealthVariables" },
@@ -336,7 +336,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UPlayerInfo, 3358757388);
+	IMPLEMENT_CLASS(UPlayerInfo, 2395333760);
 	template<> FPSMULTIJUGADOR_API UClass* StaticClass<UPlayerInfo>()
 	{
 		return UPlayerInfo::StaticClass();
@@ -345,9 +345,11 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 
 	void UPlayerInfo::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
 	{
+		static const FName Name_alive(TEXT("alive"));
 		static const FName Name_health(TEXT("health"));
 
 		const bool bIsValid = true
+			&& Name_alive == ClassReps[(int32)ENetFields_Private::alive].Property->GetFName()
 			&& Name_health == ClassReps[(int32)ENetFields_Private::health].Property->GetFName();
 
 		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in UPlayerInfo"));
