@@ -52,6 +52,9 @@ class AFPSMultijugadorCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	UMotionControllerComponent* L_MotionController;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Character, meta = (AllowPrivateAccess = "true"))
+	class UPlayerInfo* PlayerInfo;
+
 public:
 	AFPSMultijugadorCharacter();
 
@@ -125,6 +128,9 @@ protected:
 	/*Funcion para replicar los disparos*/
 	UFUNCTION(Server, Reliable, WithValidation)
 	void Srv_Shoot_Remote(UWorld* World);
+
+
+	virtual float TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser) override;
 	
 protected:
 	// APawn interface

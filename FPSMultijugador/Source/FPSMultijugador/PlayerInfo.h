@@ -16,9 +16,38 @@ public:
 	// Sets default values for this component's properties
 	UPlayerInfo();
 
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+		float GetActualHealth() { return health; }
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+		float GetFactorizedHealth() { return health / maxHealth; }
+
+	UFUNCTION(BlueprintCallable)
+		void DoDamage(float dmg);
+
+	UFUNCTION(BlueprintCallable)
+		void HealthPlayer(float nHealth);
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+		bool GetAlive() { return alive; }
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
+
+	void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
+protected:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HealthVariables)
+		bool alive = true;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HealthVariables, Replicated)
+		float health;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HealthVariables)
+		float maxHealth;
+
 
 public:	
 	// Called every frame

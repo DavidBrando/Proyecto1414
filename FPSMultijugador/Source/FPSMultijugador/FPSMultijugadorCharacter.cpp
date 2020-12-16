@@ -12,6 +12,7 @@
 #include "MotionControllerComponent.h"
 #include "XRMotionControllerBase.h" // for FXRMotionControllerBase::RightHandSourceId
 #include "Net/UnrealNetwork.h"
+#include "PlayerInfo.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
 
@@ -81,8 +82,8 @@ AFPSMultijugadorCharacter::AFPSMultijugadorCharacter()
 	VR_MuzzleLocation->SetRelativeLocation(FVector(0.000004, 53.999992, 10.000000));
 	VR_MuzzleLocation->SetRelativeRotation(FRotator(0.0f, 90.0f, 0.0f));		// Counteract the rotation of the VR gun model.
 
-	// Uncomment the following line to turn motion controllers on by default:
-	//bUsingMotionControllers = true;
+	PlayerInfo = CreateDefaultSubobject<UPlayerInfo>(TEXT("InfoPlayer"));
+	this->AddOwnedComponent(PlayerInfo);
 }
 
 void AFPSMultijugadorCharacter::BeginPlay()
@@ -180,6 +181,21 @@ void AFPSMultijugadorCharacter::LookUpAtRate(float Rate)
 	// calculate delta for this frame from the rate information
 	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
 	Srv_CorrectPitch_Remote(FirstPersonCameraComponent->K2_GetComponentRotation()); //Pitch, Yaw, Roll
+}
+
+
+//evento de recibir daño de Unreal
+float AFPSMultijugadorCharacter::TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
+{
+	float ActualDamage = Super::TakeDamage(Damage, DamageEvent, EventInstigator, DamageCauser);
+	ActualDamage = Damage;
+	/*FString TheFloatStr = FString::SanitizeFloat(vidaCambios);
+	GEngine->AddOnScreenDebugMessage(-1, 5.0, FColor::Red, *TheFloatStr);*/
+	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, TEXT("Me pegan!" + this->GetName()));
+
+	PlayerInfo->DoDamage(Damage);
+
+	return ActualDamage;
 }
 
 

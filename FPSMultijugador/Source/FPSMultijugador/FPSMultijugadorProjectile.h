@@ -33,5 +33,12 @@ public:
 	USphereComponent* GetCollisionComp() const { return CollisionComp; }
 	/** Returns ProjectileMovement subobject **/
 	UProjectileMovementComponent* GetProjectileMovement() const { return ProjectileMovement; }
+
+
+
+protected:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = OffensiveSpecs)
+	float damage = 20.f;
 };
 

@@ -1,0 +1,22 @@
+D:\GitHub\Proyecto1414\FPSMultijugador\Intermediate\Build\Win64\UE4Editor\Development\FPSMultijugador\Definitions.FPSMultijugador.h
+D:\GitHub\Proyecto1414\FPSMultijugador\Source\FPSMultijugador\FPSMultijugadorGameMode.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
+D:\GitHub\Proyecto1414\FPSMultijugador\Intermediate\Build\Win64\UE4Editor\Inc\FPSMultijugador\FPSMultijugadorGameMode.generated.h
+D:\GitHub\Proyecto1414\FPSMultijugador\Source\FPSMultijugador\FPSMultijugadorHUD.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/HUD.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/HUDHitBox.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/DebugTextInfo.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DebugTextInfo.generated.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\HUD.generated.h
+D:\GitHub\Proyecto1414\FPSMultijugador\Intermediate\Build\Win64\UE4Editor\Inc\FPSMultijugador\FPSMultijugadorHUD.generated.h
+D:\GitHub\Proyecto1414\FPSMultijugador\Source\FPSMultijugador\FPSMultijugadorCharacter.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementReplication.generated.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
+D:\Program Files (x86)\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
+D:\GitHub\Proyecto1414\FPSMultijugador\Intermediate\Build\Win64\UE4Editor\Inc\FPSMultijugador\FPSMultijugadorCharacter.generated.h

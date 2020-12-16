@@ -40,8 +40,21 @@ void AFPSMultijugadorProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* Oth
 	if ((OtherActor != nullptr) && (OtherActor != this) && (OtherComp != nullptr) && OtherComp->IsSimulatingPhysics())
 	{
 		OtherComp->AddImpulseAtLocation(GetVelocity() * 100.0f, GetActorLocation());
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("AU!"));
+		Destroy();
+
+	}
+
+	else if(OtherActor != this->GetOwner()) {
+
+		TSubclassOf<UDamageType> const ValidDamageTypeClass;
+		FDamageEvent DamageEvent(ValidDamageTypeClass);
+
+		
+		OtherActor->TakeDamage(damage, DamageEvent, nullptr, this);
 
 		Destroy();
+
 	}
+
+
 }
