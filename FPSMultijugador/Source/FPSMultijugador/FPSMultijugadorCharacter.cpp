@@ -210,7 +210,6 @@ float AFPSMultijugadorCharacter::TakeDamage(float Damage, FDamageEvent const& Da
 
 	PlayerInfo->DoDamage(Damage);
 
-	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Blue, TEXT("Ey "));
 	Srv_ReSpawn();
 
 
@@ -285,7 +284,7 @@ void AFPSMultijugadorCharacter::Srv_Shoot_Remote_Implementation(UWorld* World) {
 	{
 		const FRotator SpawnRotation = GetControlRotation();
 		// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
-		const FVector SpawnLocation = ((FP_MuzzleLocation != nullptr) ? FP_MuzzleLocation->GetComponentLocation() : GetActorLocation()) + SpawnRotation.RotateVector(GunOffset);
+		const FVector SpawnLocation = ((FP_MuzzleLocation != nullptr) ? FP_MuzzleLocation->GetComponentLocation() : GetActorLocation()) /*+ SpawnRotation.RotateVector(GunOffset)*/;
 
 		//Set Spawn Collision Handling Override
 		FActorSpawnParameters ActorSpawnParams;

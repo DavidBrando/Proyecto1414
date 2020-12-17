@@ -14,6 +14,7 @@ class UMotionControllerComponent;
 class UAnimMontage;
 class USoundBase;
 class UWorld;
+class UUserWidget;
 
 UCLASS(config=Game)
 class AFPSMultijugadorCharacter : public ACharacter
@@ -28,9 +29,7 @@ class AFPSMultijugadorCharacter : public ACharacter
 	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
 	USkeletalMeshComponent* FP_Gun;
 
-	/** Location on gun mesh where projectiles should spawn. */
-	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
-	USceneComponent* FP_MuzzleLocation;
+
 
 	/** Gun mesh: VR view (attached to the VR controller directly, no arm, just the actual gun) */
 	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
@@ -61,6 +60,10 @@ public:
 protected:
 	virtual void BeginPlay();
 
+	/** Location on gun mesh where projectiles should spawn. */
+	UPROPERTY(BlueprintReadOnly, Category = Mesh)
+		USceneComponent* FP_MuzzleLocation;
+
 public:
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
@@ -89,6 +92,8 @@ public:
 	/** Whether to use motion controller location for aiming. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 	uint8 bUsingMotionControllers : 1;
+
+
 
 protected:
 	

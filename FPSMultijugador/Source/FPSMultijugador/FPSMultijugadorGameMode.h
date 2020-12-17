@@ -19,7 +19,7 @@ public:
 
 	//Por motivos que desconozco, no se porque el SetTimer no me lo aceptaba como esta declarado en el .cpp, asi que decidi de hacerlo un evento en Blueprint.
 
-	/*Funcion para hacer spawn del jugador despues de 10 segungos*/
+	/*Funcion para hacer spawn del jugador despues de 10 segundos*/
 	UFUNCTION(BlueprintCallable, CallInEditor, BlueprintNativeEvent)
 	void SpawnPlayer(AFPSPlayerController* controller);
 
@@ -27,7 +27,7 @@ protected:
 
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(BlueprintReadOnly)
 	TArray<AActor*> spawnPoints;
 
 

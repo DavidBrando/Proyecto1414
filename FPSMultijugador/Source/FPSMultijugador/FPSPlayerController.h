@@ -14,4 +14,20 @@ class FPSMULTIJUGADOR_API AFPSPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 	
+public:
+
+	AFPSPlayerController();
+
+
+	// Called every frame
+	virtual void PlayerTick(float DeltaTime) override;
+
+
+protected:
+	// Called when the game starts
+	virtual void BeginPlay() override;
+
+	//Funcion encargada de crear la UI en blueprints
+	UFUNCTION(BlueprintCallable, CallInEditor, BlueprintNativeEvent)
+	void InitializeUI();
 };

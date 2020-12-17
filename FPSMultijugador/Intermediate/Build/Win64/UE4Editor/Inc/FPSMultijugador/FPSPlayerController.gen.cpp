@@ -18,8 +18,50 @@ void EmptyLinkFunctionForGeneratedCodeFPSPlayerController() {}
 	ENGINE_API UClass* Z_Construct_UClass_APlayerController();
 	UPackage* Z_Construct_UPackage__Script_FPSMultijugador();
 // End Cross Module References
+	DEFINE_FUNCTION(AFPSPlayerController::execInitializeUI)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->InitializeUI_Implementation();
+		P_NATIVE_END;
+	}
+	static FName NAME_AFPSPlayerController_InitializeUI = FName(TEXT("InitializeUI"));
+	void AFPSPlayerController::InitializeUI()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AFPSPlayerController_InitializeUI),NULL);
+	}
 	void AFPSPlayerController::StaticRegisterNativesAFPSPlayerController()
 	{
+		UClass* Class = AFPSPlayerController::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "InitializeUI", &AFPSPlayerController::execInitializeUI },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AFPSPlayerController_InitializeUI_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AFPSPlayerController_InitializeUI_Statics::Function_MetaDataParams[] = {
+		{ "CallInEditor", "true" },
+		{ "Comment", "//Funcion encargada de crear la UI en blueprints\n" },
+		{ "ModuleRelativePath", "FPSPlayerController.h" },
+		{ "ToolTip", "Funcion encargada de crear la UI en blueprints" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSPlayerController_InitializeUI_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AFPSPlayerController, nullptr, "InitializeUI", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C080C00, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AFPSPlayerController_InitializeUI_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_InitializeUI_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AFPSPlayerController_InitializeUI()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AFPSPlayerController_InitializeUI_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	UClass* Z_Construct_UClass_AFPSPlayerController_NoRegister()
 	{
@@ -28,6 +70,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSPlayerController() {}
 	struct Z_Construct_UClass_AFPSPlayerController_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -37,6 +80,9 @@ void EmptyLinkFunctionForGeneratedCodeFPSPlayerController() {}
 	UObject* (*const Z_Construct_UClass_AFPSPlayerController_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_APlayerController,
 		(UObject* (*)())Z_Construct_UPackage__Script_FPSMultijugador,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_AFPSPlayerController_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AFPSPlayerController_InitializeUI, "InitializeUI" }, // 2844881875
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFPSPlayerController_Statics::Class_MetaDataParams[] = {
@@ -54,11 +100,11 @@ void EmptyLinkFunctionForGeneratedCodeFPSPlayerController() {}
 		"Game",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		nullptr,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		0,
 		0,
 		0x009002A4u,
@@ -73,7 +119,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSPlayerController() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AFPSPlayerController, 1033920168);
+	IMPLEMENT_CLASS(AFPSPlayerController, 2825427889);
 	template<> FPSMULTIJUGADOR_API UClass* StaticClass<AFPSPlayerController>()
 	{
 		return AFPSPlayerController::StaticClass();

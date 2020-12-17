@@ -14,8 +14,20 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FPSMULTIJUGADOR_FPSPlayerController_generated_h
 
 #define FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_SPARSE_DATA
-#define FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_RPC_WRAPPERS
-#define FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_RPC_WRAPPERS \
+	virtual void InitializeUI_Implementation(); \
+ \
+	DECLARE_FUNCTION(execInitializeUI);
+
+
+#define FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void InitializeUI_Implementation(); \
+ \
+	DECLARE_FUNCTION(execInitializeUI);
+
+
+#define FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_EVENT_PARMS
+#define FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_CALLBACK_WRAPPERS
 #define FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAFPSPlayerController(); \
@@ -36,7 +48,7 @@ public: \
 
 #define FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API AFPSPlayerController(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+	NO_API AFPSPlayerController(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AFPSPlayerController) \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AFPSPlayerController); \
 DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AFPSPlayerController); \
@@ -48,8 +60,6 @@ public:
 
 
 #define FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API AFPSPlayerController(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AFPSPlayerController(AFPSPlayerController&&); \
@@ -57,17 +67,21 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AFPSPlayerController); \
 DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AFPSPlayerController); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AFPSPlayerController)
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AFPSPlayerController)
 
 
 #define FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_PRIVATE_PROPERTY_OFFSET
-#define FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_12_PROLOG
+#define FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_12_PROLOG \
+	FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_EVENT_PARMS
+
+
 #define FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_PRIVATE_PROPERTY_OFFSET \
 	FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_SPARSE_DATA \
 	FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_RPC_WRAPPERS \
+	FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_CALLBACK_WRAPPERS \
 	FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_INCLASS \
 	FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_STANDARD_CONSTRUCTORS \
 public: \
@@ -80,6 +94,7 @@ public: \
 	FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_PRIVATE_PROPERTY_OFFSET \
 	FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_SPARSE_DATA \
 	FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_CALLBACK_WRAPPERS \
 	FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_INCLASS_NO_PURE_DECLS \
 	FPSMultijugador_Source_FPSMultijugador_FPSPlayerController_h_15_ENHANCED_CONSTRUCTORS \
 private: \

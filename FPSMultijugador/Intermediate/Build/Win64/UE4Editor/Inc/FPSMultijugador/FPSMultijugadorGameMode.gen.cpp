@@ -59,9 +59,9 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorGameMode() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AFPSMultijugadorGameMode_SpawnPlayer_Statics::Function_MetaDataParams[] = {
 		{ "CallInEditor", "true" },
-		{ "Comment", "/*Funcion para hacer spawn del jugador despues de 10 segungos*/" },
+		{ "Comment", "/*Funcion para hacer spawn del jugador despues de 10 segundos*/" },
 		{ "ModuleRelativePath", "FPSMultijugadorGameMode.h" },
-		{ "ToolTip", "Funcion para hacer spawn del jugador despues de 10 segungos" },
+		{ "ToolTip", "Funcion para hacer spawn del jugador despues de 10 segundos" },
 	};
 #endif
 	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSMultijugadorGameMode_SpawnPlayer_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AFPSMultijugadorGameMode, nullptr, "SpawnPlayer", nullptr, nullptr, sizeof(FPSMultijugadorGameMode_eventSpawnPlayer_Parms), Z_Construct_UFunction_AFPSMultijugadorGameMode_SpawnPlayer_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSMultijugadorGameMode_SpawnPlayer_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AFPSMultijugadorGameMode_SpawnPlayer_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSMultijugadorGameMode_SpawnPlayer_Statics::Function_MetaDataParams)) };
@@ -99,7 +99,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorGameMode() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_FPSMultijugador,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AFPSMultijugadorGameMode_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AFPSMultijugadorGameMode_SpawnPlayer, "SpawnPlayer" }, // 1011300350
+		{ &Z_Construct_UFunction_AFPSMultijugadorGameMode_SpawnPlayer, "SpawnPlayer" }, // 895116105
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFPSMultijugadorGameMode_Statics::Class_MetaDataParams[] = {
@@ -116,7 +116,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorGameMode() {}
 		{ "ModuleRelativePath", "FPSMultijugadorGameMode.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AFPSMultijugadorGameMode_Statics::NewProp_spawnPoints = { "spawnPoints", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFPSMultijugadorGameMode, spawnPoints), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AFPSMultijugadorGameMode_Statics::NewProp_spawnPoints_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFPSMultijugadorGameMode_Statics::NewProp_spawnPoints_MetaData)) };
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AFPSMultijugadorGameMode_Statics::NewProp_spawnPoints = { "spawnPoints", nullptr, (EPropertyFlags)0x0020080000000014, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFPSMultijugadorGameMode, spawnPoints), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AFPSMultijugadorGameMode_Statics::NewProp_spawnPoints_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFPSMultijugadorGameMode_Statics::NewProp_spawnPoints_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPSMultijugadorGameMode_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSMultijugadorGameMode_Statics::NewProp_spawnPoints_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSMultijugadorGameMode_Statics::NewProp_spawnPoints,
@@ -148,7 +148,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorGameMode() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AFPSMultijugadorGameMode, 2252586457);
+	IMPLEMENT_CLASS(AFPSMultijugadorGameMode, 4184730734);
 	template<> FPSMULTIJUGADOR_API UClass* StaticClass<AFPSMultijugadorGameMode>()
 	{
 		return AFPSMultijugadorGameMode::StaticClass();

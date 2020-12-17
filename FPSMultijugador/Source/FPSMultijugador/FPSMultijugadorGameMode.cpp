@@ -36,6 +36,9 @@ void AFPSMultijugadorGameMode::BeginPlay()
 	Super::BeginPlay();
 
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ATargetPoint::StaticClass(), spawnPoints);
+
+	//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Green, TEXT("Tengo en c++: " + FString::FromInt(spawnPoints.Num())));
+
 }
 
 void AFPSMultijugadorGameMode::ResetDeadSpawn(AFPSPlayerController* controller)

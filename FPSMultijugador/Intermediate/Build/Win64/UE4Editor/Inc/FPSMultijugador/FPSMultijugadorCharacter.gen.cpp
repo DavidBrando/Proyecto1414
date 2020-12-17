@@ -292,10 +292,6 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorCharacter() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FP_Gun;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FP_MuzzleLocation_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FP_MuzzleLocation;
-#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_VR_Gun_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_VR_Gun;
@@ -319,6 +315,10 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorCharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PlayerInfo_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PlayerInfo;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FP_MuzzleLocation_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FP_MuzzleLocation;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BaseTurnRate_MetaData[];
 #endif
@@ -391,16 +391,6 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorCharacter() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_FP_Gun = { "FP_Gun", nullptr, (EPropertyFlags)0x00400000000b0009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFPSMultijugadorCharacter, FP_Gun), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_FP_Gun_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_FP_Gun_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_FP_MuzzleLocation_MetaData[] = {
-		{ "Category", "Mesh" },
-		{ "Comment", "/** Location on gun mesh where projectiles should spawn. */" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "FPSMultijugadorCharacter.h" },
-		{ "ToolTip", "Location on gun mesh where projectiles should spawn." },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_FP_MuzzleLocation = { "FP_MuzzleLocation", nullptr, (EPropertyFlags)0x00400000000b0009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFPSMultijugadorCharacter, FP_MuzzleLocation), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_FP_MuzzleLocation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_FP_MuzzleLocation_MetaData)) };
-#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_VR_Gun_MetaData[] = {
 		{ "Category", "Mesh" },
 		{ "Comment", "/** Gun mesh: VR view (attached to the VR controller directly, no arm, just the actual gun) */" },
@@ -462,6 +452,16 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorCharacter() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_PlayerInfo = { "PlayerInfo", nullptr, (EPropertyFlags)0x00400000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFPSMultijugadorCharacter, PlayerInfo), Z_Construct_UClass_UPlayerInfo_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_PlayerInfo_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_PlayerInfo_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_FP_MuzzleLocation_MetaData[] = {
+		{ "Category", "Mesh" },
+		{ "Comment", "/** Location on gun mesh where projectiles should spawn. */" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "FPSMultijugadorCharacter.h" },
+		{ "ToolTip", "Location on gun mesh where projectiles should spawn." },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_FP_MuzzleLocation = { "FP_MuzzleLocation", nullptr, (EPropertyFlags)0x002008000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFPSMultijugadorCharacter, FP_MuzzleLocation), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_FP_MuzzleLocation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_FP_MuzzleLocation_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_BaseTurnRate_MetaData[] = {
 		{ "Category", "Camera" },
@@ -532,13 +532,13 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorCharacter() {}
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_Mesh1P,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_FP_Gun,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_FP_MuzzleLocation,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_VR_Gun,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_VR_MuzzleLocation,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_FirstPersonCameraComponent,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_R_MotionController,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_L_MotionController,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_PlayerInfo,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_FP_MuzzleLocation,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_BaseTurnRate,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_BaseLookUpRate,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSMultijugadorCharacter_Statics::NewProp_GunOffset,
@@ -574,7 +574,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AFPSMultijugadorCharacter, 1784544012);
+	IMPLEMENT_CLASS(AFPSMultijugadorCharacter, 1139785882);
 	template<> FPSMULTIJUGADOR_API UClass* StaticClass<AFPSMultijugadorCharacter>()
 	{
 		return AFPSMultijugadorCharacter::StaticClass();
