@@ -84,6 +84,7 @@ AFPSMultijugadorCharacter::AFPSMultijugadorCharacter()
 	VR_MuzzleLocation->SetRelativeLocation(FVector(0.000004, 53.999992, 10.000000));
 	VR_MuzzleLocation->SetRelativeRotation(FRotator(0.0f, 90.0f, 0.0f));		// Counteract the rotation of the VR gun model.
 
+	//creamos el componente
 	PlayerInfo = CreateDefaultSubobject<UPlayerInfo>(TEXT("InfoPlayer"));
 	this->AddOwnedComponent(PlayerInfo);
 }
