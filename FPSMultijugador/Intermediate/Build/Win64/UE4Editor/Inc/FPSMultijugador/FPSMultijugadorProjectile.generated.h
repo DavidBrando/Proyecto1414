@@ -75,9 +75,9 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AFPSMultijugadorProjectile); \
 
 
 #define FPSMultijugador_Source_FPSMultijugador_FPSMultijugadorProjectile_h_15_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__CollisionComp() { return STRUCT_OFFSET(AFPSMultijugadorProjectile, CollisionComp); } \
 	FORCEINLINE static uint32 __PPO__ProjectileMovement() { return STRUCT_OFFSET(AFPSMultijugadorProjectile, ProjectileMovement); } \
-	FORCEINLINE static uint32 __PPO__damage() { return STRUCT_OFFSET(AFPSMultijugadorProjectile, damage); }
+	FORCEINLINE static uint32 __PPO__damage() { return STRUCT_OFFSET(AFPSMultijugadorProjectile, damage); } \
+	FORCEINLINE static uint32 __PPO__CollisionComp() { return STRUCT_OFFSET(AFPSMultijugadorProjectile, CollisionComp); }
 
 
 #define FPSMultijugador_Source_FPSMultijugador_FPSMultijugadorProjectile_h_12_PROLOG

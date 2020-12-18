@@ -14,9 +14,7 @@ class AFPSMultijugadorProjectile : public AActor
 {
 	GENERATED_BODY()
 
-	/** Sphere collision component */
-	UPROPERTY(VisibleDefaultsOnly, Category=Projectile)
-	USphereComponent* CollisionComp;
+
 
 	/** Projectile movement component */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
@@ -40,5 +38,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = OffensiveSpecs)
 	float damage = 20.f;
+
+	/** Sphere collision component */
+	UPROPERTY(BlueprintReadOnly, VisibleDefaultsOnly, Category = Projectile)
+		USphereComponent* CollisionComp;
 };
 

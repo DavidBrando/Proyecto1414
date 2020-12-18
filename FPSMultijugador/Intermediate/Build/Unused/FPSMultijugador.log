@@ -2,20 +2,20 @@
   Creating makefile for FPSMultijugadorEditor (no existing makefile)
   Parsing headers for FPSMultijugadorEditor
     Running UnrealHeaderTool "D:\GitHub\Proyecto1414\FPSMultijugador\FPSMultijugador.uproject" "D:\GitHub\Proyecto1414\FPSMultijugador\Intermediate\Build\Win64\FPSMultijugadorEditor\Development\FPSMultijugadorEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\User\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
-  Reflection code generated for FPSMultijugadorEditor in 13,0036465 seconds
+  Reflection code generated for FPSMultijugadorEditor in 17,6358015 seconds
   Building FPSMultijugadorEditor...
   Using Visual Studio 2019 14.28.29335 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
   Building 19 actions with 8 processes...
     [1/19] Default.rc2
     [2/19] SharedPCH.Engine.ShadowErrors.cpp
     [3/19] FPSMultijugador.cpp
-    [4/19] PlayerInfo.cpp
-    [5/19] FPSMultijugador.init.gen.cpp
-    [6/19] FPSMultijugadorProjectile.cpp
-    [7/19] FPSMultijugadorHUD.cpp
+    [4/19] FPSMultijugador.init.gen.cpp
+    [5/19] PlayerInfo.cpp
+    [6/19] FPSMultijugadorHUD.cpp
+    [7/19] FPSMultijugadorProjectile.cpp
     [8/19] FPSMultijugadorCharacter.gen.cpp
-    [9/19] FPSMultijugadorHUD.gen.cpp
-    [10/19] FPSMultijugadorGameMode.gen.cpp
+    [9/19] FPSMultijugadorGameMode.gen.cpp
+    [10/19] FPSMultijugadorHUD.gen.cpp
     [11/19] FPSMultijugadorProjectile.gen.cpp
     [12/19] FPSPlayerController.gen.cpp
     [13/19] PlayerInfo.gen.cpp
@@ -27,5 +27,5 @@
     [18/19] UE4Editor-FPSMultijugador-0001.dll
        Creando biblioteca D:\GitHub\Proyecto1414\FPSMultijugador\Intermediate\Build\Win64\UE4Editor\Development\FPSMultijugador\UE4Editor-FPSMultijugador-0001.suppressed.lib y objeto D:\GitHub\Proyecto1414\FPSMultijugador\Intermediate\Build\Win64\UE4Editor\Development\FPSMultijugador\UE4Editor-FPSMultijugador-0001.suppressed.exp
     [19/19] FPSMultijugadorEditor.target
-  Total time in Parallel executor: 47,98 seconds
-  Total execution time: 73,12 seconds
+  Total time in Parallel executor: 48,24 seconds
+  Total execution time: 80,71 seconds

@@ -22,7 +22,7 @@ AFPSMultijugadorGameMode::AFPSMultijugadorGameMode() : Super()
 
 //void AFPSMultijugadorGameMode::SpawnPlayer(AFPSPlayerController* controller)
 //{
-//	//GetWorld()->GetTimerManager().SetTimer(DeadSpawn, AFPSMultijugadorGameMode::ResetDeadSpawn(controller), 10.0f, false);
+//GetWorld()->GetTimerManager().SetTimer(DeadSpawn, AFPSMultijugadorGameMode::ResetDeadSpawn(controller), 10.0f, false);
 //
 //}
 

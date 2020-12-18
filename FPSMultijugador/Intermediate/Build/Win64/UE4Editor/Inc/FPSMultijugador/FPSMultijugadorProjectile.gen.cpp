@@ -21,8 +21,8 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorProjectile() {}
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
-	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UProjectileMovementComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(AFPSMultijugadorProjectile::execOnHit)
 	{
@@ -130,10 +130,6 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorProjectile() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CollisionComp_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_CollisionComp;
-#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ProjectileMovement_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ProjectileMovement;
@@ -141,6 +137,10 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorProjectile() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_damage_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_damage;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CollisionComp_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_CollisionComp;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -159,16 +159,6 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorProjectile() {}
 	};
 #endif
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_CollisionComp_MetaData[] = {
-		{ "Category", "Projectile" },
-		{ "Comment", "/** Sphere collision component */" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "FPSMultijugadorProjectile.h" },
-		{ "ToolTip", "Sphere collision component" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_CollisionComp = { "CollisionComp", nullptr, (EPropertyFlags)0x00400000000b0009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFPSMultijugadorProjectile, CollisionComp), Z_Construct_UClass_USphereComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_CollisionComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_CollisionComp_MetaData)) };
-#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_ProjectileMovement_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
@@ -186,10 +176,20 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorProjectile() {}
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_damage = { "damage", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFPSMultijugadorProjectile, damage), METADATA_PARAMS(Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_damage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_damage_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_CollisionComp_MetaData[] = {
+		{ "Category", "Projectile" },
+		{ "Comment", "/** Sphere collision component */" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "FPSMultijugadorProjectile.h" },
+		{ "ToolTip", "Sphere collision component" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_CollisionComp = { "CollisionComp", nullptr, (EPropertyFlags)0x00200800000b001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFPSMultijugadorProjectile, CollisionComp), Z_Construct_UClass_USphereComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_CollisionComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_CollisionComp_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_CollisionComp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_ProjectileMovement,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_damage,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_CollisionComp,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AFPSMultijugadorProjectile>::IsAbstract,
@@ -218,7 +218,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorProjectile() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AFPSMultijugadorProjectile, 368854845);
+	IMPLEMENT_CLASS(AFPSMultijugadorProjectile, 650547976);
 	template<> FPSMULTIJUGADOR_API UClass* StaticClass<AFPSMultijugadorProjectile>()
 	{
 		return AFPSMultijugadorProjectile::StaticClass();

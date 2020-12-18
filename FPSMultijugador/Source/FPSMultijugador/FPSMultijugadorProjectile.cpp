@@ -49,7 +49,7 @@ void AFPSMultijugadorProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* Oth
 		TSubclassOf<UDamageType> const ValidDamageTypeClass;
 		FDamageEvent DamageEvent(ValidDamageTypeClass);
 
-		
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Green, TEXT("DMG done: " + GetName()));
 		OtherActor->TakeDamage(damage, DamageEvent, nullptr, this);
 
 		Destroy();
