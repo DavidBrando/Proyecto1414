@@ -4,6 +4,8 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Components/SphereComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Net/UnrealNetwork.h"
+#include "Engine/Engine.h"
 
 
 AFPSMultijugadorProjectile::AFPSMultijugadorProjectile() 
@@ -57,4 +59,11 @@ void AFPSMultijugadorProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* Oth
 	}
 
 
+}
+
+void AFPSMultijugadorProjectile::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(AFPSMultijugadorProjectile, damage);
 }

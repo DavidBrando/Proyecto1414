@@ -36,11 +36,13 @@ public:
 
 protected:
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = OffensiveSpecs)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = OffensiveSpecs, Replicated)
 	float damage = 20.f;
 
 	/** Sphere collision component */
 	UPROPERTY(BlueprintReadOnly, VisibleDefaultsOnly, Category = Projectile)
 		USphereComponent* CollisionComp;
+
+	void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 };
 

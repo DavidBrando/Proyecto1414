@@ -36,7 +36,13 @@ public: \
 	DECLARE_CLASS(AFPSMultijugadorProjectile, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/FPSMultijugador"), NO_API) \
 	DECLARE_SERIALIZER(AFPSMultijugadorProjectile) \
 	static const TCHAR* StaticConfigName() {return TEXT("Game");} \
-
+ \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		damage=NETFIELD_REP_START, \
+		NETFIELD_REP_END=damage	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define FPSMultijugador_Source_FPSMultijugador_FPSMultijugadorProjectile_h_15_INCLASS \
@@ -47,7 +53,13 @@ public: \
 	DECLARE_CLASS(AFPSMultijugadorProjectile, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/FPSMultijugador"), NO_API) \
 	DECLARE_SERIALIZER(AFPSMultijugadorProjectile) \
 	static const TCHAR* StaticConfigName() {return TEXT("Game");} \
-
+ \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		damage=NETFIELD_REP_START, \
+		NETFIELD_REP_END=damage	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define FPSMultijugador_Source_FPSMultijugador_FPSMultijugadorProjectile_h_15_STANDARD_CONSTRUCTORS \

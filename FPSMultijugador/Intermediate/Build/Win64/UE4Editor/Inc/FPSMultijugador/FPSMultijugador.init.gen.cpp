@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugador_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x888E37A2,
+				0x639FDF9A,
 				0xBD892CEC,
 				METADATA_PARAMS(nullptr, 0)
 			};

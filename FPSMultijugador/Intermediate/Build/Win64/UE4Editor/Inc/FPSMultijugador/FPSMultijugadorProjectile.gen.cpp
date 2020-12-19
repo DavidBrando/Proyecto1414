@@ -175,7 +175,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorProjectile() {}
 		{ "ModuleRelativePath", "FPSMultijugadorProjectile.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_damage = { "damage", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFPSMultijugadorProjectile, damage), METADATA_PARAMS(Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_damage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_damage_MetaData)) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_damage = { "damage", nullptr, (EPropertyFlags)0x0020080000000025, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFPSMultijugadorProjectile, damage), METADATA_PARAMS(Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_damage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_damage_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFPSMultijugadorProjectile_Statics::NewProp_CollisionComp_MetaData[] = {
 		{ "Category", "Projectile" },
@@ -218,12 +218,22 @@ void EmptyLinkFunctionForGeneratedCodeFPSMultijugadorProjectile() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AFPSMultijugadorProjectile, 650547976);
+	IMPLEMENT_CLASS(AFPSMultijugadorProjectile, 3330973900);
 	template<> FPSMULTIJUGADOR_API UClass* StaticClass<AFPSMultijugadorProjectile>()
 	{
 		return AFPSMultijugadorProjectile::StaticClass();
 	}
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AFPSMultijugadorProjectile(Z_Construct_UClass_AFPSMultijugadorProjectile, &AFPSMultijugadorProjectile::StaticClass, TEXT("/Script/FPSMultijugador"), TEXT("AFPSMultijugadorProjectile"), false, nullptr, nullptr, nullptr);
+
+	void AFPSMultijugadorProjectile::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
+	{
+		static const FName Name_damage(TEXT("damage"));
+
+		const bool bIsValid = true
+			&& Name_damage == ClassReps[(int32)ENetFields_Private::damage].Property->GetFName();
+
+		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in AFPSMultijugadorProjectile"));
+	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AFPSMultijugadorProjectile);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 #ifdef _MSC_VER

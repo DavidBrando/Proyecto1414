@@ -209,6 +209,13 @@ float AFPSMultijugadorCharacter::TakeDamage(float Damage, FDamageEvent const& Da
 	GEngine->AddOnScreenDebugMessage(-1, 5.0, FColor::Red, *TheFloatStr);*/
 	//GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, TEXT("Me pegan!" + this->GetName()));
 
+	FString TheFloatStr1 = FString::SanitizeFloat(ActualDamage);
+	FString TheFloatStr2 = FString::SanitizeFloat(Damage);
+
+	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, TEXT("me hace daño: " + TheFloatStr1 + " ---- " + TheFloatStr2));
+
+
+
 	PlayerInfo->DoDamage(Damage);
 
 	Srv_ReSpawn();
