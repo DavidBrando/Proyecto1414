@@ -13,7 +13,8 @@ UPlayerInfo::UPlayerInfo()
 	PrimaryComponentTick.bCanEverTick = true;
 	health = 100.f;
 	maxHealth = health;
-	this->SetIsReplicated(true);
+	this->SetIsReplicatedByDefault(true);
+	
 	// ...
 }
 
